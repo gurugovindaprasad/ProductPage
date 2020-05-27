@@ -25,7 +25,7 @@ import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import Collapse from "@material-ui/core/Collapse";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
-
+import InputLabel from "@material-ui/core/InputLabel";
 const useStyles = (theme) => ({
   root: {
     paddingTop: "20px",
@@ -83,6 +83,9 @@ const useStyles = (theme) => ({
   },
   strike: {
     textDecoration: "line-through",
+  },
+  pointerCursor: {
+    cursor: "pointer",
   },
 });
 
@@ -291,13 +294,25 @@ class Product extends Component {
                 </Grid>
                 <Grid item>
                   <Typography variant="h6">
-                    <Collapse collapsedHeight={40}>
+                    <Collapse
+                      in={this.state.descriptionOpen}
+                      collapsedHeight={40}
+                    >
                       <Typography variant="body2" color="textSecondary">
                         {this.state.productDescription}
                       </Typography>
                     </Collapse>
                   </Typography>
-                  <Typography variant="body2" color="primary">
+                  <Typography
+                    className={classes.pointerCursor}
+                    onClick={() =>
+                      this.setState({
+                        descriptionOpen: !this.state.descriptionOpen,
+                      })
+                    }
+                    variant="body2"
+                    color="primary"
+                  >
                     Read More
                   </Typography>
                 </Grid>
@@ -322,14 +337,15 @@ class Product extends Component {
                   </Grid>
                 </Grid>
                 <Grid item>
+                  <Typography variant="body1">Size</Typography>
+
                   <FormControl>
-                    <Typography variant="body1">Size</Typography>
-                    <Select value={10}>
-                      <MenuItem value={10}>S</MenuItem>
-                      <MenuItem value={20}>M</MenuItem>
-                      <MenuItem value={30}>L</MenuItem>
-                      <MenuItem value={40}>XS</MenuItem>
-                      <MenuItem value={50}>xL</MenuItem>
+                    <Select>
+                      {this.state.secondaryVariant["size"].map((option) => (
+                        <MenuItem key={option} value={option}>
+                          {option}
+                        </MenuItem>
+                      ))}
                     </Select>
                   </FormControl>
                 </Grid>
