@@ -25,6 +25,8 @@ import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import Collapse from "@material-ui/core/Collapse";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 const useStyles = (theme) => ({
   root: {
@@ -351,7 +353,26 @@ class Product extends Component {
                 </Grid>
                 <Grid item>
                   <form className={classes.root} noValidate autoComplete="off">
-                    <TextField id="standard-basic" label="Pincode" />
+                    <TextField
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <LocationOnIcon color="primary" />
+                          </InputAdornment>
+                        ),
+                        endAdornment: (
+                          <InputAdornment
+                            position="end"
+                            className={classes.pointerCursor}
+                            color="primary"
+                          >
+                            <Typography variant="body1" color="primary">
+                              Check
+                            </Typography>
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
                   </form>
                 </Grid>
               </Grid>
