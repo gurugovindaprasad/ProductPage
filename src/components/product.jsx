@@ -16,7 +16,7 @@ import {
 } from "@material-ui/core/";
 import Container from "@material-ui/core/Container";
 import "../product.css";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import ShareIcon from "@material-ui/icons/Share";
@@ -25,7 +25,7 @@ import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import Collapse from "@material-ui/core/Collapse";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
-import InputLabel from "@material-ui/core/InputLabel";
+
 const useStyles = (theme) => ({
   root: {
     paddingTop: "20px",
@@ -44,7 +44,7 @@ const useStyles = (theme) => ({
     justifyContent: "left",
     flexWrap: "nowrap",
   },
-  otherImg: {
+  imgList: {
     overflowY: "scroll",
     height: "auto",
     maxHeight: "500px",
@@ -257,7 +257,7 @@ class Product extends Component {
             <Grid item lg={5} xs={12} md={5} sm={5}>
               <Grid container spacing={2}>
                 <Grid item lg={3} xs={3} md={3} sm={3}>
-                  <div className={classes.otherImg}>
+                  <div className={classes.imgList}>
                     {this.state.currentImageGroup.map((image) => (
                       <img
                         className={classes.smallImg}

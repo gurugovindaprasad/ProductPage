@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Product from "././components/product";
+import ProductHooks from "./components/productHooks";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Product />
+    <ProductHooks />
   </React.StrictMode>,
   document.getElementById("root")
 );
